@@ -1,0 +1,7 @@
+
+---
+ansible_user                : root
+ansible_ssh_private_key_file: /root/.ssh/authorized_keys/my_pass
+message                     : Hello_Rat
+
+

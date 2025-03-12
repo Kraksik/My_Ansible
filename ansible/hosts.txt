@@ -1,0 +1,14 @@
+
+[staging_servers]
+192.168.0.31
+
+#[staging_DB]
+#192.168.0.32
+
+
+[staging_ALL:children]
+staging_servers
+#staging_DB
+
+
+

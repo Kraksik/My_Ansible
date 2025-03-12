@@ -1,0 +1,28 @@
+
+---
+
+- name:  Install Web Server and copy my Web Page from master VM
+  hosts: staging_servers
+  become: yes
+
+
+  vars:
+    source_file: /usr/local/etc/ansible/index.html
+    destin_file: /var/www/html
+  
+  tasks:
+
+  - name: Install Nginx
+    apt: name=nginx state=latest
+
+  - name: Start Nginx and Enable
+    service: name=nginx state=started enabled=yes
+
+  - name: Copy my Web Page
+    copy: src={{ source_file }} dest={{ destin_file }} mode=644
+
+
+  handlers: 
+  - name: Restart Nginx
+    service: name=nginx state=restarted 
+   
